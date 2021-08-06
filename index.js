@@ -1100,7 +1100,7 @@ function somarValores(){
     for (let i = 0; i < listaProdutos.length; i++){
         somaProdutos += listaProdutos[i].qtdEstoque 
     }
-    console.log("Quantidade de itens em estoque é de: "+somaProdutos)
+ //   console.log("Quantidade de itens em estoque é de: "+somaProdutos)
 };
 
 
@@ -1114,7 +1114,7 @@ function qtdItensDestaques(){
     }
 
   }
-    console.log("Quantidade total de itens em destaque é de: " + somaTotalQuantidadeEmDestaque) 
+ //   console.log("Quantidade total de itens em destaque é de: " + somaTotalQuantidadeEmDestaque) 
 };
 
 
@@ -1131,7 +1131,7 @@ function qtdItensDisponiveis(){
      }
     
     }
-    console.log("Quantidade total de itens disponíveis é de: " + somaTotalQuantidadeEmDestaque) 
+   console.log("Quantidade total de itens disponíveis é de: " + somaTotalQuantidadeEmDestaque) 
 };
 
 //4 Quantidade de itens disponíveis e em destaque
@@ -1164,29 +1164,44 @@ function precoTotal(){
 
 
 
-//6 questao
-function MaiorValor(){
+//6º Produto mais caro da loja (bem como seu departamento - considere apenas o preço dele)
+    function produto6() {
+        var precoTot = 0
+        var PrecoM = 0
+        var depar = "";
+        var nomeprodu = 0;
 
-    
-    let caixa = []
-    for (var i = 0; i < listaProdutos.length; i++) {
+        for(let i = 0; i < listaProdutos.length; i++){
+            if(listaProdutos[i].preco > PrecoM ){
+                depar = listaProdutos[i].departamento.nomeDepto
+                PrecoM = listaProdutos[i].preco
+                precoTot = listaProdutos[i].preco
+                nomeprodu = listaProdutos[i].descricao
+                
+                
+            }
 
-     caixa.push(listaProdutos[i].preco)
-
-     
+           
+        }
+        console.log("Produto valioso: " + nomeprodu + " nome departamento: " + depar + "R$" + precoTot)
     }
-    
-    var maior = Math.max.apply(null, caixa );
-
    
+  
+    
+     // 8º Produto de estoque mais valioso (considere o preço multiplicado pela quantidade e também apenas EM ESTOQUE)
+                function questao8() {
+                var estoque = 0;
+                var produc = 0;
+                for(let i = 0; i < listaProdutos.length; i++){
+                    if((listaProdutos[i].preco * listaProdutos[i].qtdEstoque) > estoque){
+                        estoque = listaProdutos[i].qtdEstoque * listaProdutos[i].preco
+                        produc = listaProdutos[i].descricao
+                        
+                    }
+                }
+                console.log(produc)
+            }
 
-    console.log(maior);
+          
 
-    ; }
-
-
-MaiorValor()
-
-
-
-
+          
