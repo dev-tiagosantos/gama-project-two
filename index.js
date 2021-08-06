@@ -1094,7 +1094,7 @@ var listaProdutos = [
 ]
 
 
-// 1º
+// 1º Quantidade total de itens em estoque (somatória das quantidades de todos os produtos)
 function somarValores(){ 
     let somaProdutos = 0; 
     for (let i = 0; i < listaProdutos.length; i++){
@@ -1105,13 +1105,11 @@ function somarValores(){
 
 
 
-//2º
+//Quantidade total de itens em destaque (somatória das quantidades dos itens marcados como "emDestaque : sim")
 function qtdItensDestaques(){
     let somaTotalQuantidadeEmDestaque = 0;
-    
     for (let i = 0; i < listaProdutos.length; i++){
-
-        if (listaProdutos[i].emDestaque == "sim") {
+    if (listaProdutos[i].emDestaque == "sim") {
         somaTotalQuantidadeEmDestaque += 1  
     }
 
@@ -1121,7 +1119,9 @@ function qtdItensDestaques(){
 
 
 
-//3 º
+//3 º Quantidade total de itens disponíveis (similar ao anterior)
+
+
 function qtdItensDisponiveis(){
     let somaTotalQuantidadeEmDestaque = 0;
     
@@ -1134,30 +1134,25 @@ function qtdItensDisponiveis(){
     console.log("Quantidade total de itens disponíveis é de: " + somaTotalQuantidadeEmDestaque) 
 };
 
-//4 º
+//4 Quantidade de itens disponíveis e em destaque
 function qtdItensDestaquesDisponiveis(){
     let somaTotalQuantidadeEmDestaque = 0;
-  
-    
     for (let i = 0; i < listaProdutos.length; i++){
         if (listaProdutos[i].disponivel == "sim" && listaProdutos[i].emDestaque == "sim" ) {
         somaTotalQuantidadeEmDestaque += 1   
     }
   }
     console.log("Quantidade total de itens em destaque e disponíveis é de: " + somaTotalQuantidadeEmDestaque) 
-    //console.log("Quantidade total de itens disponíveis é de: " + disponivel) 
+    
 };
 
 
-//5 questão -  pegar os preços e multiplicar pelos itens em estoque com a condição que se for zero, não passe
+//5 Valor total do inventário da empresa (somatória dos valores individuais multiplicado pela quantidade em estoque - considere apenas os produtos “EM ESTOQUE”)
 function precoTotal(){
     let somaProdutos = 0; 
     for (let i = 0; i < listaProdutos.length; i++){
-        // SOMA DOS PRODUTOS = LISTA DE PRODUTOS + ELA MESMA 
-
-        if (listaProdutos[i].qtdEstoque > "0") {
-             
-            somaProdutos +=  listaProdutos[i].preco * listaProdutos[i].qtdEstoque 
+    if (listaProdutos[i].qtdEstoque > "0") {
+    somaProdutos +=  listaProdutos[i].preco * listaProdutos[i].qtdEstoque 
            
         
          }
